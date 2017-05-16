@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
     
   # GET /commits
-  # GET /commits.json
   def index
+      @posts = Post.all
   end
 
   # GET /commits/1
-  # GET /commits/1.json
   def show
+      @post = Post.find(params[:id])
   end
 
   # GET /commits/new
@@ -16,27 +16,37 @@ class PostsController < ApplicationController
 
   # GET /commits/1/edit
   def edit
+      @post = Post.find(params[:id])
   end
 
   # POST /commits
-  # POST /commits.json
   def create
     _title = params[:title]
     _content = params[:content]
     _writer = params[:writer]
     
     Post.create(title: _title, content: _content, writer: _writer)
+    
+    redirect_to "/posts"
   end
 
   # PATCH/PUT /commits/1
-  # PATCH/PUT /commits/1.json
   def update
+    _title = params[:title]
+    _content = params[:content]
+    _writer = params[:writer]
     
+    post = Post.find(params[:id])
+    post.update(title: _title, content: _content, writer: _writer)
+    
+    redirect_to "/posts"
   end
 
   # DELETE /commits/1
-  # DELETE /commits/1.json
-  def destroy
+  def delete
+      Post.delete(params[:id])
+      
+      redirect_to "/posts"
   end
   
 end

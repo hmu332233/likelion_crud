@@ -1,0 +1,22 @@
+<section class="container py-3">
+<div class="pt-4 mt-2 mb-5">
+	<div class="pt-2 pt-sm-3 pt-lg-4 px-3 px-sm-4 px-lg-5 pb-2 pb-lg-3 mb-4 bg-white b-gray-1 br-5px d-flex flex-column font-weight-light">
+		<h4 class="my-2 my-lg-3 font-weight-light">
+		<%= @post.title %> </h4>
+		<hr class="my-2 my-lg-3 w-100">
+		<div class="align-self-end font-size-sm">
+			<span class="ml-2 ml-md-3 ml-lg-4"><%= @post.writer %></span>
+			<span class="ml-2 ml-md-3 ml-lg-4"><%= @post.created_at.strftime("%B %d, %Y") %></span>
+			<span class="ml-2 ml-md-3 ml-lg-4">105 읽음</span>
+		</div>
+		<div class="my-3">
+		    <p><%= simple_format(@post.content) %></p>
+		</div>
+		<div class="align-self-end font-weight-light font-size-sm">
+			<a class="my-2 ml-2 ml-md-3 text-color-slate" href="/posts/<%= @post.id %>/edit">수정하기</a>
+			<a class="my-2 ml-2 ml-md-3 text-color-slate" href="/posts/delete/<%= @post.id %>">삭제하기</a>
+			<a class="my-2 ml-2 ml-md-3 text-color-slate" href="/posts">목록으로</a>
+		</div>
+	</div>
+</div>
+</section>

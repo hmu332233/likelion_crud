@@ -20,24 +20,14 @@
         </tr>
       </thead>
       <tbody>
+        <% @posts.each do |post| %>
         <tr>
-          <th scope="row">1</th>
-          <td><a href="#">Mark</a></td>
-          <td>Otto</td>
-          <td>@mdo</td>
+          <th scope="row"><%= post.id %></th>
+          <td><a href="/posts/<%= post.id %>"><%= post.title %></a></td>
+          <td><%= post.writer %></td>
+          <td><%= post.created_at.strftime("%B %d, %Y") %></td>
         </tr>
-        <tr>
-          <th scope="row">1</th>
-          <td><a href="#">Mark</a></td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">1</th>
-          <td><a href="#">Mark</a></td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
+        <% end %>
      
       </tbody>
     </table>
